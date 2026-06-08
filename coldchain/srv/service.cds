@@ -1,5 +1,6 @@
 using coldchain from '../db/schema';
 
+@path: '/coldchain'
 service ColdChainService {
   @singular: 'Product'         @plural: 'Products'
   entity Products          as projection on coldchain.Products;
