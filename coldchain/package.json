@@ -5,10 +5,24 @@
     "@sap/cds": "^9"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2.4"
+    "@cap-js/cds-typer": "^0.39.1",
+    "@cap-js/sqlite": "^2.4",
+    "@types/node": "^25.9.2",
+    "typescript": "^6.0.3"
   },
   "scripts": {
     "start": "cds-serve"
   },
-  "private": true
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": "srv",
+        "credentials": {
+          "file": "db.sqlite"
+        }
+      }
+    }
+  }
 }
