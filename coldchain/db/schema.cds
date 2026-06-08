@@ -5,6 +5,8 @@ aspect deactivatable {
   isActive : Boolean default true not null;
 }
 
+@singular : 'ProductCategory'
+@plural   : 'ProductCategories'
 entity ProductCategories : cuid, managed {
   name                 : String not null;
   parent               : Association to ProductCategories;
@@ -14,6 +16,8 @@ entity ProductCategories : cuid, managed {
   pricingRules         : Composition of many PricingRules on pricingRules.category = $self;
 }
 
+@singular : 'Product'
+@plural   : 'Products'
 entity Products : cuid, managed, deactivatable {
   sku           : String not null;
   name          : String not null;
@@ -25,23 +29,31 @@ entity Products : cuid, managed, deactivatable {
   batches       : Composition of many Batches on batches.product = $self;
 }
 
+@singular : 'Supplier'
+@plural   : 'Suppliers'
 entity Suppliers : cuid, deactivatable {
   name              : String not null;
   s4BusinessPartner : String;
 }
 
+@singular : 'StorageLocation'
+@plural   : 'StorageLocations'
 entity StorageLocations : cuid {
   code            : String not null;
   temperatureZone : String enum { frozen; chilled; ambient } not null;
   capacityUnits   : Integer;
 }
 
+@singular : 'PricingRule'
+@plural   : 'PricingRules'
 entity PricingRules : cuid {
   category        : Association to ProductCategories not null;
   appliesToStatus : String enum { Fresh; UseSoon; Critical } not null; //expired isnt sold
   discountPercent : Decimal(5,2) not null;
 }
 
+@singular : 'Batch'
+@plural   : 'Batches'
 entity Batches : cuid, managed {
   batchNo          : Integer @title: 'Batch #';
   product          : Association to Products not null;
@@ -59,6 +71,8 @@ entity Batches : cuid, managed {
   actions          : Composition of many BatchActions    on actions.batch     = $self;
 }
 
+@singular : 'Order'
+@plural   : 'Orders'
 entity Orders : cuid, managed {
   orderNo   : Integer @title: 'Order #';                         // human-readable, assigned in handler
   customer  : String not null;
@@ -66,6 +80,8 @@ entity Orders : cuid, managed {
   lineItems : Composition of many OrderLineItems on lineItems.order = $self;
 }
 
+@singular : 'OrderLineItem'
+@plural   : 'OrderLineItems'
 entity OrderLineItems : cuid {
   order             : Association to Orders not null;
   product           : Association to Products not null;
@@ -76,6 +92,8 @@ entity OrderLineItems : cuid {
 }
 
 // Link entity: OrderLineItem ↔ Batch (FEFO) + frozen price snapshot
+@singular : 'Allocation'
+@plural   : 'Allocations'
 entity Allocations : cuid, managed {
   orderLineItem         : Association to OrderLineItems not null;
   batch                 : Association to Batches not null;
@@ -83,6 +101,8 @@ entity Allocations : cuid, managed {
   unitPriceAtAllocation : Decimal(9,2) not null;                 // price FROZEN at point of sale
 }
 
+@singular : 'DisposalRecord'
+@plural   : 'DisposalRecords'
 entity DisposalRecords : cuid, managed {
   batch       : Association to Batches not null;
   quantity    : Integer not null;
@@ -92,6 +112,8 @@ entity DisposalRecords : cuid, managed {
 }
 
 // Output of the nightly sweep: an actionable item about an at-risk batch
+@singular : 'BatchAction'
+@plural   : 'BatchActions'
 entity BatchActions : cuid, managed {
   batch    : Association to Batches not null;
   sweepRun : Association to SweepRuns;                            // which run raised it (optional link for traceability)
@@ -101,6 +123,8 @@ entity BatchActions : cuid, managed {
 }
 
 // Observability: one row per sweep execution
+@singular : 'SweepRun'
+@plural   : 'SweepRuns'
 entity SweepRuns : cuid {
   runAt          : Timestamp not null;
   batchesScanned : Integer default 0 not null;
