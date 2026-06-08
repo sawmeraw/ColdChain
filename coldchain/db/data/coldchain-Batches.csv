@@ -1,0 +1,6 @@
+ID;batchNo;product_ID;location_ID;supplier_ID;productionDate;expiryDate;quantityReceived;quantityOnHand;unitCost;currentUnitPrice;expiryStatus
+bat-001;10001;prod-salmon;loc-chill1;sup-tassal;2026-06-05;2026-06-10;200;200;7.00;12.50;Fresh
+bat-002;10002;prod-salmon;loc-chill1;sup-tassal;2026-06-01;2026-06-07;150;90;7.00;12.50;Fresh
+bat-003;10003;prod-yoghurt;loc-chill2;sup-fresh;2026-05-28;2026-06-12;300;300;3.50;6.00;Fresh
+bat-004;10004;prod-spinach;loc-chill1;sup-fresh;2026-06-02;2026-06-09;120;120;2.50;4.50;Fresh
+bat-005;10005;prod-salmon;loc-chill1;sup-tassal;2026-05-30;2026-06-15;180;180;7.00;12.50;Fresh
