@@ -7,6 +7,7 @@ aspect deactivatable {
 
 @singular : 'ProductCategory'
 @plural   : 'ProductCategories'
+@cds.odata.valuelist
 entity ProductCategories : cuid, managed {
   name                 : String not null;
   parent               : Association to ProductCategories;
@@ -18,6 +19,7 @@ entity ProductCategories : cuid, managed {
 
 @singular : 'Product'
 @plural   : 'Products'
+@cds.odata.valuelist
 entity Products : cuid, managed, deactivatable {
   sku           : String not null;
   name          : String not null;
@@ -31,6 +33,7 @@ entity Products : cuid, managed, deactivatable {
 
 @singular : 'Supplier'
 @plural   : 'Suppliers'
+@cds.odata.valuelist
 entity Suppliers : cuid, deactivatable {
   name              : String not null;
   s4BusinessPartner : String;
@@ -38,6 +41,7 @@ entity Suppliers : cuid, deactivatable {
 
 @singular : 'StorageLocation'
 @plural   : 'StorageLocations'
+@cds.odata.valuelist
 entity StorageLocations : cuid {
   code            : String not null;
   temperatureZone : String enum { frozen; chilled; ambient } not null;

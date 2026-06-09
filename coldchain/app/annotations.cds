@@ -1,8 +1,7 @@
-using ColdChainService from './service';
+using ColdChainService from '../srv/service.cds';
 
 annotate ColdChainService.Batches with @(
     UI: {
-        SelectionFields: [expiryStatus, product_ID],
         LineItem: [
             {Value: batchNo, Label: 'Batch #'},
             {Value: product_ID, Label: 'Product ID'},
@@ -14,5 +13,6 @@ annotate ColdChainService.Batches with @(
         HeaderInfo:{
             TypeName: 'Batch', TypeNamePlural: 'Batches', Title: {Value: batchNo}, Description: {Value: expiryStatus}
         }
+        
     }
 );

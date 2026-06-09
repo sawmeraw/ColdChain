@@ -1,4 +1,4 @@
 ID;sku;name;category_ID;basePrice;storageClass;shelfLifeDays;isActive
-prod-salmon;SF-SAL-200;Tasmanian Salmon Fillet 200g;cat-seafood;12.50;chilled;5;true
-prod-yoghurt;DY-YOG-500;Greek Yoghurt 500g;cat-dairy;6.00;chilled;14;true
-prod-spinach;PR-SPI-150;Baby Spinach 150g;cat-produce;4.50;chilled;7;true
+00000000-0000-0000-0000-00000000d001;SF-SAL-200;Tasmanian Salmon Fillet 200g;00000000-0000-0000-0000-0000000ca7d2;12.50;chilled;5;true
+00000000-0000-0000-0000-00000000d002;DY-YOG-500;Greek Yoghurt 500g;00000000-0000-0000-0000-0000000ca7d1;6.00;chilled;14;true
+00000000-0000-0000-0000-00000000d003;PR-SPI-150;Baby Spinach 150g;00000000-0000-0000-0000-0000000ca7d3;4.50;chilled;7;true
