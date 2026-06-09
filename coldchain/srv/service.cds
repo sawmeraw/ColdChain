@@ -13,6 +13,7 @@ service ColdChainService {
   @singular: 'PricingRule'     @plural: 'PricingRules'
   entity PricingRules      as projection on coldchain.PricingRules;
   @singular: 'Batch'           @plural: 'Batches'
+  @odata.draft.enabled
   entity Batches           as projection on coldchain.Batches;
   @singular: 'Order'           @plural: 'Orders'
   entity Orders            as projection on coldchain.Orders;
