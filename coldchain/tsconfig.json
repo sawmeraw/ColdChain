@@ -11,6 +11,6 @@
     "outDir": "gen/srv",
     "rootDir": "."
   },
-  "include": ["srv", "@cds-models"],
+  "include": ["srv", "@cds-models", "test/SweepService.test.ts"],
   "exclude": ["node_modules", "gen"]
 }

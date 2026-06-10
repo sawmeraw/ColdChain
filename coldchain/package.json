@@ -5,13 +5,16 @@
     "@sap/cds": "^9"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^1.0.1",
     "@cap-js/cds-typer": "^0.39.1",
     "@cap-js/sqlite": "^2.4",
     "@types/node": "^25.9.2",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "test": "node --import tsx --test \"test/**/*.test.ts\""
   },
   "private": true,
   "imports": {

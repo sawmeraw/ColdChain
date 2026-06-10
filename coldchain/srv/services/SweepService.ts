@@ -1,7 +1,8 @@
 import {Batches, SweepRuns, Batch_expiryStatus} from '#cds-models/ColdChainService';
+import cds from '@sap/cds';
 
 export class SweepService {
-    constructor(private readonly srv: any){} 
+    constructor(private readonly srv: cds.Service){} 
 
     classify(expiryDate: string): Batch_expiryStatus{
         const today = new Date();
